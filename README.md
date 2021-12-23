@@ -1,1 +1,5 @@
-# the-book-maze
+# The Book Maze
+
+## Objective
+
+## Get Started
