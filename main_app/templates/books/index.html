@@ -15,6 +15,7 @@
 <section class="card-container">
   {% for book in books %}
     <div class="card">
+      <a href="{% url 'books_detail' book.id %}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
@@ -26,6 +27,7 @@
         <h2 class="card-title">{{ book.title }}</h2>
         <p><small>{{ book.author }}</small></p>
       </div>
+      </a>
     </div>
   {% endfor %}
 </section>

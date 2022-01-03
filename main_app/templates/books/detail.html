@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/book-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="book-container">
+  <div class="book-details">
+    <h1>{{ book.title }}</h1>
+    <h1>{{ book.author }}</h1>
+    <p>{{ cat.description }}</p>
+  </div>
+</section>
+
+{% endblock %}
