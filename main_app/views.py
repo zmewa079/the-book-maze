@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Book
 from main_app import models
 # Create your views here.
@@ -19,6 +19,11 @@ def books_detail(request, book_id):
   return render(request, 'books/detail.html', { 'book': book })
 
 class BookCreate(CreateView):
+  model = Book
+  fields = '__all__'
+  success_url = '/books/'
+
+class BookUpdate(UpdateView):
   model = Book
   fields = '__all__'
   success_url = '/books/'

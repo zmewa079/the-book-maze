@@ -17,7 +17,7 @@
     <h1>{{ book.author }}</h1>
     <p>{{ book.description }}</p>
     <div class="book-actions">
-      {% comment %} <a href="{% url 'cats_update' cat.id %}" class="btn warn">Edit</a> {% endcomment %}
+      <a href="{% url 'books_update' book.id %}" class="btn warn">Edit</a>
       <a href="{% url 'books_delete' book.id %}" class="btn danger">Delete</a>
     </div>
   </div>
