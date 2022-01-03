@@ -11,8 +11,24 @@
 
 {% block content %}
 
-<section class="book-container">
+<section class="book-container"> 
   <div class="book-details">
+    <div class="book-img">
+      {% if book.photo.url %}
+        <img 
+          src="{{book.photo.url}}" 
+          alt="A photo of {{book.title}}"
+          class="usr-img"
+        >
+      {% else %}
+      <img 
+      src="{% static 'images/book lib.jpeg' %}" 
+      alt="book"
+      width="200" height="200"
+    >
+      {% endif %}
+    </div>
+    
     <h1>{{ book.title }}</h1>
     <h1>{{ book.author }}</h1>
     <p>{{ book.description }}</p>
@@ -20,6 +36,20 @@
       <a href="{% url 'books_update' book.id %}" class="btn warn">Edit</a>
       <a href="{% url 'books_delete' book.id %}" class="btn danger">Delete</a>
     </div>
+    <h3>Change {{ book.title }}'s photo</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add_photo' book.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Photo</button>
+    </form> 
   </div>
 </section>
 

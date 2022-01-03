@@ -33,24 +33,43 @@
   margin-right: 10px;
 }
 
-.cat-details h1 {
+.book-details h1 {
   font-size: var(--font-xxl);
   margin: 15px 0 3px;
 }
 
-.cat-details h2 {
+.book-details h2 {
   font-size: var(--font-xl);
   margin: 0 0 10px;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-.cat-details h3 {
+.book-details h3 {
   margin: 20px 0 10px;
   font-size: var(--font-l);
 }
 
-.cat-details p {
+.book-details p {
   font-size: var(--font-reg);
   margin: 5px 0;
+}
+
+.usr-img {
+  width: 100%;
+}
+
+.book-details h3 {
+  margin: 16px 0 10px 0;
+}
+
+#file-input {
+  overflow: hidden;
+  position: absolute;
+  width: .1px;
+  height: .1px;
+}
+
+#file-name {
+  margin-bottom: 10px;
 }

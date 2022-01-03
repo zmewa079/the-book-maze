@@ -17,13 +17,22 @@
     <div class="card">
       <a href="{% url 'books_detail' book.id %}">
       <div class="card-content">
-        <div class="card-img-container">
-          <img 
+        <div class="book-details">
+          <div class="book-img">
+            {% if book.photo.url %}
+              <img 
+                src="{{book.photo.url}}" 
+                alt="A photo of {{book.title}}"
+                class="usr-img"
+              >
+            {% else %}
+            <img 
             src="{% static 'images/book lib.jpeg' %}" 
             alt="book"
             width="200" height="200"
           >
-        </div>
+            {% endif %}
+          </div>
         <h2 class="card-title">{{ book.title }}</h2>
         <p><small>{{ book.author }}</small></p>
         <p><small>{{ book.user }}</small></p>

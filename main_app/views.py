@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Book
+from .models import Book, Photo
 from main_app import models
+import uuid
+import boto3
 # Create your views here.
 
 def home(request):
@@ -31,3 +33,24 @@ class BookUpdate(UpdateView):
 class BookDelete(DeleteView):
   model = Book
   success_url = '/books/'
+
+S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
+BUCKET = 'jan-bookcollector'
+
+def add_photo(request, book_id):
+  # photo-file will be the "name" attribute on the <input type="file">
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, book_id=book_id)
+      book_photo = Photo.objects.filter(book_id=book_id)
+      if book_photo.first():
+        book_photo.first().delete()
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('books_detail', book_id=book_id)
