@@ -10,12 +10,12 @@
   margin: 10px;
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
-}
+} */
 
 .card-content {
   padding: 10px;
   width: 100%;
-}
+} 
 
 .usr-img {
   width: 100%;
@@ -35,4 +35,4 @@
 .card p {
   margin: 5px 0;
   font-size: var(--font-reg);
-}
+} 

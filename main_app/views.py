@@ -13,7 +13,7 @@ books = [
 ]
 
 def home(request):
-  return HttpResponse('<h1>Welcome to The Book Maze</h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
