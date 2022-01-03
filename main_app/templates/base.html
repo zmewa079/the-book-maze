@@ -19,9 +19,10 @@
   <header>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/books">All Books</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url '' %}">Home</a></li>
+        <li><a href="{% url 'books_index' %}">All Books</a></li>
+        <li><a href="{% url 'books_create' %}">Add a Book</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>
