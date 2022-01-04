@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cat-index.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/book-index.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -18,12 +18,13 @@
       <a href="{% url 'books_detail' book.id %}">
       <div class="card-content">
         <div class="book-details">
-          <div class="book-img">
+          <div class="card-img-container">
             {% if book.photo.url %}
               <img 
                 src="{{book.photo.url}}" 
                 alt="A photo of {{book.title}}"
                 class="usr-img"
+                width="200" height="200"
               >
             {% else %}
             <img 

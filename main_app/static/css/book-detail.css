@@ -24,8 +24,6 @@
   margin-top: 20px;
 }
 
-
-
 .color-block {
   opacity: 0.8;
   height: 25px;
@@ -53,10 +51,6 @@
 .book-details p {
   font-size: var(--font-reg);
   margin: 5px 0;
-}
-
-.usr-img {
-  width: 100%;
 }
 
 .book-details h3 {
