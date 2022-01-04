@@ -3,6 +3,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Book, Photo
 from main_app import models
 import uuid
@@ -15,15 +17,18 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required(login_url='/')
 def books_index(request):
-  books = Book.objects.all()
+  books = Book.objects.filter(user=request.user)
   return render(request, 'books/index.html', { 'books': books })
 
+@login_required(login_url='/')
 def books_detail(request, book_id):
   book = Book.objects.get(id=book_id)
   return render(request, 'books/detail.html', { 'book': book })
 
-class BookCreate(CreateView):
+class BookCreate(LoginRequiredMixin, CreateView):
+  login_url = '/'
   model = Book
   fields = ['title', 'author', 'description']
   success_url = '/books/'
@@ -33,18 +38,21 @@ class BookCreate(CreateView):
     # Let the CreateView do its job as usual
     return super().form_valid(form)
 
-class BookUpdate(UpdateView):
+class BookUpdate(LoginRequiredMixin, UpdateView):
+  login_url = '/'
   model = Book
   fields = '__all__'
   success_url = '/books/'
 
-class BookDelete(DeleteView):
+class BookDelete(LoginRequiredMixin, DeleteView):
+  login_url = '/'
   model = Book
   success_url = '/books/'
 
 S3_BASE_URL = 'https://s3.us-east-1.amazonaws.com/'
 BUCKET = 'jan-bookcollector'
 
+@login_required(login_url='/')
 def add_photo(request, book_id):
   # photo-file will be the "name" attribute on the <input type="file">
   photo_file = request.FILES.get('photo-file', None)

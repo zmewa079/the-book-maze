@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import environ
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -30,6 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # Application definition
 
@@ -77,11 +79,18 @@ WSGI_APPLICATION = 'thebookmaze.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.postgresql',
+		'NAME': 'thebookmaze',
+	}
 }
 
 
@@ -129,5 +138,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/static/'
+LOGIN_URL = 'home'
 LOGIN_REDIRECT_URL = 'books_index'
 LOGOUT_REDIRECT_URL = 'home'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
