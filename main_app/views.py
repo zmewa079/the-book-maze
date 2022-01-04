@@ -23,7 +23,7 @@ def books_detail(request, book_id):
 
 class BookCreate(CreateView):
   model = Book
-  fields = '__all__'
+  fields = ['title', 'author', 'description']
   success_url = '/books/'
 
 class BookUpdate(UpdateView):
