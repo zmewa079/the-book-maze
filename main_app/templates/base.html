@@ -5,8 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type='text/css' href="{% static 'css/base.css' %}">
-  <title>Book Collector</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:ital@1&display=swap" rel="stylesheet">
+  <link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/base.css' %}"
+  />
+  <title>The Book Maze</title>
   {% block head %}
   {% endblock %}
 </head>
@@ -15,9 +22,10 @@
     <nav>
       <ul>
         {% if user.is_authenticated %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'books_index' %}">All Books</a></li>
           <li><a href="{% url 'books_create' %}">Add a Book</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'logout' %}">Log out</a></li>
           {% else %}
             <li><a href="{% url 'about' %}">About</a></li>

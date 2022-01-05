@@ -10,6 +10,7 @@
   margin: 10px;
   border: var(--borders);
   box-shadow: var(--card-box-shadow);
+  border: solid;
 }
 
 .card-content {
@@ -35,4 +36,13 @@
 .card p {
   margin: 5px 0;
   font-size: var(--font-reg);
-} 
+}
+
+section {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+}

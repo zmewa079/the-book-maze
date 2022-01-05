@@ -1,3 +1,8 @@
+nav {
+  margin-top: 10px;
+  
+}
+
 main {
   display: flex;
   align-items: center;
@@ -8,57 +13,64 @@ main {
 
 main > section {
   width: 100%;
-  padding: 10px 8px;
+  padding: 20px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.header-logo-container {
-  display: none;
-}
 
 .logo-container {
-  max-width: 375px;
+  padding: 30px;
+  margin-top: 50px;
 }
 
-.book-container {
-  width: 80%;
-}
 
 .login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
 }
 
 .login h1 {
-  font-size: clamp(3.2rem, 3vw, 4.8rem);
-  margin: 10px 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin: 10px 0 16px 0;
 }
 
 .login > p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 14px 0 0px;
 }
 
 .login label {
-  font-size: var(--font-reg);
-  margin-bottom: 6px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 .login input {
-  font-size: var(--font-l);
-  padding: 2px 4px;
+  font-size: 1.8rem;
+  padding: 2px;
 }
 
 .login .btn {
   align-self: flex-end;
   margin-right: 0;
-  margin-top: 16px;
+  margin-top: 10px;
+}
+
+section {
+  border: solid; 
+  padding: 100px;
+  border-radius: 50px;
+  border: 5px solid black;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-right: 75em;
+  margin-left: 75em;
+}
+h1 {
+  font-size: 3em;
 }

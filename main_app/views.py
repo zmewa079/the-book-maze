@@ -41,7 +41,7 @@ class BookCreate(LoginRequiredMixin, CreateView):
 class BookUpdate(LoginRequiredMixin, UpdateView):
   login_url = '/'
   model = Book
-  fields = '__all__'
+  fields = ['title', 'author', 'description']
   success_url = '/books/'
 
 class BookDelete(LoginRequiredMixin, DeleteView):
