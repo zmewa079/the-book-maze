@@ -29,13 +29,14 @@
       {% endif %}
     </div>
     
-    <h1>{{ book.title }}</h1>
-    <h1>{{ book.author }}</h1>
-    <p>{{ book.description }}</p>
+    <h2>Title: {{ book.title }}</h2>
+    <h3>Author: {{ book.author }}</h3>
+    <p>About the book: {{ book.description }}</p>
     <div class="book-actions">
       <a href="{% url 'books_update' book.id %}" class="btn warn">Edit</a>
       <a href="{% url 'books_delete' book.id %}" class="btn danger">Delete</a>
     </div>
+    
     <h3>Change {{ book.title }}'s photo</h3>
     <p id="file-name"></p>
     <form 
