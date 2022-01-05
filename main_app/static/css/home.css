@@ -61,8 +61,7 @@ main > section {
   margin-top: 10px;
 }
 
-section {
-  border: solid; 
+.login-border {
   padding: 100px;
   border-radius: 50px;
   border: 5px solid black;
