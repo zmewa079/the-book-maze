@@ -7,7 +7,7 @@
 + As an avid reader, I wanted to build an app that I would practically be using too.Sometimes you just need to rant about a book you've just read and why you really enjoyed it so this app allows you to do exactly that-a book tracker app of all your favorite books.  
 
 ## Getting Started: 
-+ Click [here](https://the-book-maze.herokuapp.com/) to go to the application. 
++ Click [here](https://the-book-maze-aaba602882ff.herokuapp.com/) to go to the application. 
 
 ## View
 
